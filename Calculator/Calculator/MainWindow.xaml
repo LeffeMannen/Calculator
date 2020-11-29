@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Leffe's Calculator" Height="700" Width="600">
+        Title="Leffe's Calculator" Height="600" Width="500">
     <Grid Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition/>
-            <RowDefinition/>
+            
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -29,48 +29,43 @@
         </Grid.RowDefinitions>
         
         <!-- row 1 -->
-        <TextBox x:Name="textDisplay" FontSize="60" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="-10 -10 -10 10" Background="#BBBBBB" TextAlignment="Right" VerticalAlignment="Bottom">0</TextBox>
+        <TextBox x:Name="textDisplay" IsReadOnly="true" FontSize="50" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="-10 -10 -10 10" Background="#BBBBBB" TextAlignment="Right" VerticalAlignment="Bottom">0</TextBox>
 
         <!-- row 2 -->
-        <Button Click="Proc_Click" FontSize="20" Grid.Row="2" Grid.Column="1" Content="%"/>
+        <Button Click="Root_Click" FontSize="20" Grid.Row="2" Grid.Column="1" Content="√"/>
         <Button Click="ClearEntry_Click" FontSize="20" Grid.Row="2" Grid.Column="2" Content="CE"/>
         <Button Click="Clear_Click" FontSize="20" Grid.Row="2" Grid.Column="3" Content="C"/>
         <Button Click="Backspace_Click" FontSize="20" Grid.Row="2" Grid.Column="4" Content="⌫"/>
 
         <!-- row 3 -->
-        <Button Click="ParL_Click" FontSize="20" Grid.Row="3" Grid.Column="1" Content="("/>
-        <Button Click="ParR_Click" FontSize="20" Grid.Row="3" Grid.Column="2" Content=")"/>
-        <Button Click="E_Click" FontSize="20" Grid.Row="3" Grid.Column="3" Content="e"/>
-        <Button Click="Pi_Click" FontSize="20" Grid.Row="3" Grid.Column="4" Content="π"/>
+        <Button Click="X2_Click" FontSize="20" Grid.Row="3" Grid.Column="1" Content="x²"/>
+        <Button Click="E_Click" FontSize="20" Grid.Row="3" Grid.Column="2" Content="e"/>
+        <Button Click="Pi_Click" FontSize="20" Grid.Row="3" Grid.Column="3" Content="π"/>
+        <Button Click="Div_Click" FontSize="20" Grid.Row="3" Grid.Column="4" Content="/"/>
 
         <!-- row 4 -->
-        <Button Click="X2_Click" FontSize="20" Grid.Row="4" Grid.Column="1" Content="x²"/>
-        <Button Click="PosNeg_Click" FontSize="20" Grid.Row="4" Grid.Column="2" Content="+/-"/>
-        <Button Click="Root_Click" FontSize="20" Grid.Row="4" Grid.Column="3" Content="√"/>
-        <Button Click="Div_Click" FontSize="20" Grid.Row="4" Grid.Column="4" Content="/"/>
+        <Button Click="Seven_Click" FontSize="20" Grid.Row="4" Grid.Column="1" Content="7"/>
+        <Button Click="Eight_Click" FontSize="20" Grid.Row="4" Grid.Column="2" Content="8"/>
+        <Button Click="Nine_Click" FontSize="20" Grid.Row="4" Grid.Column="3" Content="9"/>
+        <Button Click="Mult_Click" FontSize="20" Grid.Row="4" Grid.Column="4" Content="*"/>
 
         <!-- row 5 -->
-        <Button Click="Seven_Click" FontSize="20" Grid.Row="5" Grid.Column="1" Content="7"/>
-        <Button Click="Eight_Click" FontSize="20" Grid.Row="5" Grid.Column="2" Content="8"/>
-        <Button Click="Nine_Click" FontSize="20" Grid.Row="5" Grid.Column="3" Content="9"/>
-        <Button Click="Mult_Click" FontSize="20" Grid.Row="5" Grid.Column="4" Content="*"/>
+        <Button Click="Four_Click" FontSize="20" Grid.Row="5" Grid.Column="1" Content="4"/>
+        <Button Click="Five_Click" FontSize="20" Grid.Row="5" Grid.Column="2" Content="5"/>
+        <Button Click="Six_Click" FontSize="20" Grid.Row="5" Grid.Column="3" Content="6"/>
+        <Button Click="Sub_Click" FontSize="20" Grid.Row="5" Grid.Column="4" Content="-"/>
 
         <!-- row 6 -->
-        <Button Click="Four_Click" FontSize="20" Grid.Row="6" Grid.Column="1" Content="4"/>
-        <Button Click="Five_Click" FontSize="20" Grid.Row="6" Grid.Column="2" Content="5"/>
-        <Button Click="Six_Click" FontSize="20" Grid.Row="6" Grid.Column="3" Content="6"/>
-        <Button Click="Sub_Click" FontSize="20" Grid.Row="6" Grid.Column="4" Content="-"/>
+        <Button Click="One_Click" FontSize="20" Grid.Row="6" Grid.Column="1" Content="1"/>
+        <Button Click="Two_Click" FontSize="20" Grid.Row="6" Grid.Column="2" Content="2"/>
+        <Button Click="Three_Click" FontSize="20" Grid.Row="6" Grid.Column="3" Content="3"/>
+        <Button Click="Add_Click" FontSize="20" Grid.Row="6" Grid.Column="4" Content="+"/>
 
         <!-- row 7 -->
-        <Button Click="One_Click" FontSize="20" Grid.Row="7" Grid.Column="1" Content="1"/>
-        <Button Click="Two_Click" FontSize="20" Grid.Row="7" Grid.Column="2" Content="2"/>
-        <Button Click="Three_Click" FontSize="20" Grid.Row="7" Grid.Column="3" Content="3"/>
-        <Button Click="Add_Click" FontSize="20" Grid.Row="7" Grid.Column="4" Content="+"/>
-
-        <!-- row 8 -->
-        <Button Click="Zero_Click" FontSize="20" Grid.Row="8" Grid.Column="1" Content="0" Grid.ColumnSpan="2"/>
-        <Button Click="Coma_Click" FontSize="20" Grid.Row="8" Grid.Column="3" Content=","/>
-        <Button Click="Equal_Click" FontSize="20" Grid.Row="8" Grid.Column="4" Content="="/>
+        <Button Click="Zero_Click" FontSize="20" Grid.Row="7" Grid.Column="1" Content="0"/>
+        <Button Click="PosNeg_Click" FontSize="20" Grid.Row="7" Grid.Column="2" Content="+/-"/>
+        <Button Click="Coma_Click" FontSize="20" Grid.Row="7" Grid.Column="3" Content=","/>
+        <Button Click="Equal_Click" FontSize="20" Grid.Row="7" Grid.Column="4" Content="="/>
 
     </Grid>
 </Window>

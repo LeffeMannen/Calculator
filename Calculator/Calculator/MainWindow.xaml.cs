@@ -21,23 +21,14 @@ namespace Calculator
     public partial class MainWindow : Window
     {
 
-        long number1 = 0;
-        long number2 = 0;
+        double number1 = 0;
+        double number2 = 0;
         string operation = "";
-
-
 
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void Proc_Click(object sender, RoutedEventArgs e)
-        {
-            operation = "%";
-            textDisplay.Text = "%";
-        }
-        //fix later
         private void ClearEntry_Click(object sender, RoutedEventArgs e)
         {
             if (operation == "")
@@ -50,7 +41,6 @@ namespace Calculator
             }
             textDisplay.Text = "";
         }
-        //fix later
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             number1 = 0;
@@ -58,7 +48,6 @@ namespace Calculator
             operation = "";
             textDisplay.Text = "";
         }
-        //fix later
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
             if (operation == "")
@@ -72,30 +61,36 @@ namespace Calculator
                 textDisplay.Text = number2.ToString();
             }
         }
-        private void ParL_Click(object sender, RoutedEventArgs e)
-        {
-            operation = "(";
-            textDisplay.Text = "(";
-        }
-        private void ParR_Click(object sender, RoutedEventArgs e)
-        {
-            operation = ")";
-            textDisplay.Text = ")";
-        }
         private void E_Click(object sender, RoutedEventArgs e)
         {
-            operation = "e";
-            textDisplay.Text = "e";
+            if (operation == "")
+            {
+                number1 = (number1 * 10) + 2.71;
+                textDisplay.Text = number1.ToString();
+            }
+            else
+            {
+                number2 = (number2 * 10) + 2.71;
+                textDisplay.Text += number2.ToString();
+            }
         }
         private void Pi_Click(object sender, RoutedEventArgs e)
         {
-            operation = "π";
-            textDisplay.Text = "π";
+            if (operation == "")
+            {
+                number1 = (number1 * 10) + 3.14;
+                textDisplay.Text = number1.ToString();
+            }
+            else
+            {
+                number2 = (number2 * 10) + 3.14;
+                textDisplay.Text += number2.ToString();
+            }
         }
         private void X2_Click(object sender, RoutedEventArgs e)
         {
             operation = "²";
-            textDisplay.Text = "²";
+            textDisplay.Text += "²";
         }
         private void PosNeg_Click(object sender, RoutedEventArgs e)
         {
@@ -113,35 +108,33 @@ namespace Calculator
         private void Root_Click(object sender, RoutedEventArgs e)
         {
             operation = "√";
-            textDisplay.Text = "√";
+            textDisplay.Text += "√";
         }
         private void Div_Click(object sender, RoutedEventArgs e)
         {
             operation = "/";
-            textDisplay.Text = "/";
+            textDisplay.Text += "/";
         }
         private void Mult_Click(object sender, RoutedEventArgs e)
         {
             operation = "*";
-            textDisplay.Text = "*";
+            textDisplay.Text += "*";
         }
         private void Sub_Click(object sender, RoutedEventArgs e)
         {
             operation = "-";
-            textDisplay.Text = "-";
+            textDisplay.Text += "-";
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             operation = "+";
             textDisplay.Text += "+";
         }
-        //fix later
         private void Coma_Click(object sender, RoutedEventArgs e)
         {
             operation = ",";
             textDisplay.Text += ",";
         }
-        //fix later
         private void Equal_Click(object sender, RoutedEventArgs e)
         {
             textDisplay.Text += "="; 
@@ -151,14 +144,21 @@ namespace Calculator
                     textDisplay.Text += (number1 + number2).ToString();
                     break;
                 case "-":
-                    textDisplay.Text = (number1 - number2).ToString();
+                    textDisplay.Text += (number1 - number2).ToString();
                     break;
                 case "*":
-                    textDisplay.Text = (number1 * number2).ToString();
+                    textDisplay.Text += (number1 * number2).ToString();
                     break;
                 case "/":
-                    textDisplay.Text = (number1 / number2).ToString();
+                    textDisplay.Text += (number1 / number2).ToString();
                     break;
+                case "²":
+                    textDisplay.Text += ((number1 * number1)).ToString();
+                    break;
+                case "√":
+                    textDisplay.Text += (Math.Sqrt(number1)).ToString();
+                    break;
+
             }
         }
         private void Zero_Click(object sender, RoutedEventArgs e)
@@ -229,6 +229,7 @@ namespace Calculator
         }
         private void Five_Click(object sender, RoutedEventArgs e)
         {
+            
             if (operation == "")
             {
                 number1 = (number1 * 10) + 5;
@@ -292,6 +293,5 @@ namespace Calculator
                 textDisplay.Text += number2.ToString();
             }
         }
-
     }
 }
